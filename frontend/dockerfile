@@ -1,16 +1,11 @@
 FROM nginx:latest
 
 
-
-
 # Kopieren von gebauten Artefakten vom vorherigen Schritt
-COPY . /usr/share/nginx/html
-
-
+COPY ./static/ /usr/share/nginx/html/
 
 # Port freigeben (standardmäßig Port 80 für Nginx)
 EXPOSE 80
-
 
 # Nginx im Vordergrund starten
 CMD ["nginx", "-g", "daemon off;"]
